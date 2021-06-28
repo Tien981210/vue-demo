@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <p>{{person.name}}</p>
+        <p>{{person.age}}</p>
+        {{msg}}
+        <div v-html='htmlStr'></div>
+        <div v-text='person.age'></div>
+        <input v-model='msg' />
+        <button v-on:click='handelClick'>click</button>
+        <button @click='handelClick'>@</button>
+
+        <div v-bind:style='style1'>1</div>
+        <div :style='style2'>2</div>
+
+    </div>
+    <!-- <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+        </ul>
+        <ol>
+            <li>a</li>
+            <li>b</li>
+            <li>c</li>
+        </ol> -->
+    </div>
+    <script src='./observer.js'>    </script>
+    <script src='./vueDemo.js'>    </script>
+    <script>
+
+        let vm = new mvue({
+            el: '#app',
+            data: {
+                person: {
+                    name: 'Tien',
+                    age: '22'
+                },
+                msg: 'sdsf',
+                htmlStr: '<p>person.name</p>',
+                style1: 'height:100px;width:100px;background:red',
+                style2: 'height:100px;width:100px;background:green',
+            },
+            methods: {
+                handelClick() {
+                    console.log(this)
+                    // this.person.name = 'aaaa'
+                    // this.$data.person.name = '测试观察'
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
